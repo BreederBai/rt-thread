@@ -955,6 +955,86 @@ static void stm32_uart_get_config(void)
     uart_config[UART4_INDEX].dma_tx = &uart4_dma_tx;
 #endif
 #endif
+
+#ifdef BSP_USING_UART5
+    uart_obj[UART5_INDEX].serial.config = config;
+    uart_obj[UART5_INDEX].uart_dma_flag = 0;
+
+    uart_obj[UART5_INDEX].serial.config.rx_bufsz = BSP_UART5_RX_BUFSIZE;
+    uart_obj[UART5_INDEX].serial.config.tx_bufsz = BSP_UART5_TX_BUFSIZE;
+
+#ifdef BSP_UART5_RX_USING_DMA
+    uart_obj[UART5_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_RX;
+    static struct dma_config uart5_dma_rx = UART5_DMA_RX_CONFIG;
+    uart_config[UART5_INDEX].dma_rx = &uart5_dma_rx;
+#endif
+
+#ifdef BSP_UART5_TX_USING_DMA
+    uart_obj[UART5_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_TX;
+    static struct dma_config uart5_dma_tx = UART5_DMA_TX_CONFIG;
+    uart_config[UART5_INDEX].dma_tx = &uart5_dma_tx;
+#endif
+#endif
+
+#ifdef BSP_USING_UART6
+    uart_obj[UART6_INDEX].serial.config = config;
+    uart_obj[UART6_INDEX].uart_dma_flag = 0;
+
+    uart_obj[UART6_INDEX].serial.config.rx_bufsz = BSP_UART6_RX_BUFSIZE;
+    uart_obj[UART6_INDEX].serial.config.tx_bufsz = BSP_UART6_TX_BUFSIZE;
+
+#ifdef BSP_UART6_RX_USING_DMA
+    uart_obj[UART6_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_RX;
+    static struct dma_config uart6_dma_rx = UART6_DMA_RX_CONFIG;
+    uart_config[UART6_INDEX].dma_rx = &uart6_dma_rx;
+#endif
+
+#ifdef BSP_UART6_TX_USING_DMA
+    uart_obj[UART6_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_TX;
+    static struct dma_config uart6_dma_tx = UART6_DMA_TX_CONFIG;
+    uart_config[UART6_INDEX].dma_tx = &uart6_dma_tx;
+#endif
+#endif
+
+#ifdef BSP_USING_UART7
+    uart_obj[UART7_INDEX].serial.config = config;
+    uart_obj[UART7_INDEX].uart_dma_flag = 0;
+
+    uart_obj[UART7_INDEX].serial.config.rx_bufsz = BSP_UART7_RX_BUFSIZE;
+    uart_obj[UART7_INDEX].serial.config.tx_bufsz = BSP_UART7_TX_BUFSIZE;
+
+#ifdef BSP_UART7_RX_USING_DMA
+    uart_obj[UART7_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_RX;
+    static struct dma_config uart7_dma_rx = UART7_DMA_RX_CONFIG;
+    uart_config[UART7_INDEX].dma_rx = &uart7_dma_rx;
+#endif
+
+#ifdef BSP_UART7_TX_USING_DMA
+    uart_obj[UART7_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_TX;
+    static struct dma_config uart7_dma_tx = UART7_DMA_TX_CONFIG;
+    uart_config[UART7_INDEX].dma_tx = &uart7_dma_tx;
+#endif
+#endif
+
+#ifdef BSP_USING_UART8
+    uart_obj[UART8_INDEX].serial.config = config;
+    uart_obj[UART8_INDEX].uart_dma_flag = 0;
+
+    uart_obj[UART8_INDEX].serial.config.rx_bufsz = BSP_UART8_RX_BUFSIZE;
+    uart_obj[UART8_INDEX].serial.config.tx_bufsz = BSP_UART8_TX_BUFSIZE;
+
+#ifdef BSP_UART8_RX_USING_DMA
+    uart_obj[UART8_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_RX;
+    static struct dma_config uart8_dma_rx = UART8_DMA_RX_CONFIG;
+    uart_config[UART8_INDEX].dma_rx = &uart8_dma_rx;
+#endif
+
+#ifdef BSP_UART8_TX_USING_DMA
+    uart_obj[UART8_INDEX].uart_dma_flag |= RT_DEVICE_FLAG_DMA_TX;
+    static struct dma_config uart8_dma_tx = UART8_DMA_TX_CONFIG;
+    uart_config[UART8_INDEX].dma_tx = &uart8_dma_tx;
+#endif
+#endif
 }
 
 #ifdef RT_SERIAL_USING_DMA
